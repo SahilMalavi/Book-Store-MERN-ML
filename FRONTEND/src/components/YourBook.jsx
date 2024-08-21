@@ -43,20 +43,20 @@ function YourBook() {
     };
 
     // Filtering the books by id greater than 0 to avoid null or undefined items in the list.
-    var data = list.filter((i) => i.id > 0)
+    // var data = list.filter((i) => i.id > 0)
 
     return (
       <>
-        <div className='max-w-screen-2xl container mx-auto md:px-24 px-4 m-5 mb-20'>
+        <div className='max-w-screen-2xl container mx-auto md:px-24 px-4  '>
               <div>
-                  <h2 className='text-2xl md:text-3xl font-bold'>Book List</h2>
+                  <h2 className='text-2xl md:text-3xl font-bold'>Explore</h2>
               </div>
           
                 <div className="slider-container m-5">
                 <Slider {...settings} >
                         {/* Map over the filtered data and create a card for each book */}
                         { 
-                          data.map((item) => (
+                          list.map((item) => (
                               <Cards item={item} key={item.id} />
                           ))
                       }

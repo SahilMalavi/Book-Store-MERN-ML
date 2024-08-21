@@ -24,9 +24,9 @@ img {
   transition: transform 0.5s ease-in-out;
 }
 
-img:hover {
+/* img:hover {
   transform: scale(1.1);
-}
+} */
 
 button {
   transition: background-color 0.3s ease, transform 0.3s ease;

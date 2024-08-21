@@ -3,8 +3,8 @@ import React from 'react'
 function Cards({ item }) {
     return (
         <>
-            <div className='max-w-screen-2xl container mx-auto  px-4'>
-                <div className="card bg-base-100 w-96 shadow-xl  px-4">
+            <div className='max-w-screen-2xl container mx-auto  px-4 '>
+                <div className="card bg-base-100 w-92 shadow-xl mt-4 mb-4 dark:border-white border card-compact  m-2 hover:scale-105 duration-200 ">
                     <figure>
                         <img
                             src={item.image}

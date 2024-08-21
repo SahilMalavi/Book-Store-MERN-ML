@@ -43,5 +43,49 @@
         "category": "Motivational",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    }, {
+        "id": 1,
+        "title": "Book Title 1",
+        "author": "Author 1",
+        "category": "Drama",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    }, 
+    {
+        "id": 2,
+        "title": "Book Title 2",
+        "author": "Author 2",
+        "category":"Tragedy",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    }
+    , {
+        "id": 3,
+        "title": "Book Title 3",
+        "author": "Author 3",
+        "category": "Thriller",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    }, {
+        "id": 4,
+        "title": "Book Title 4",
+        "author": "Author 4",
+        "category": "Comedy",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },{
+        "id": 5,
+        "title": "Book Title 5",
+        "author": "Author 5",
+        "category": "Sci-fi",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },{
+        "id": 6,
+        "title": "Book Title 6",
+        "author": "Author 6",
+        "category": "Motivational",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
     }
 ]
