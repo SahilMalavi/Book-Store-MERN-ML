@@ -46,14 +46,14 @@ function navbar() {
     const navItems = (<>
         <li><a href='/'>Home</a></li>
         <li><a href='/books'>Books</a></li>
-        <li><a>Contact</a></li>
+        <li><a href='/contact'>Contact</a></li>
 
     </>)
     // const loginBtn = (<>
     //     <a className="  bg-black text-white text-1xl px-4 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer text-center">Login</a>
     // </>)
     return (
-        <>        <div className={`max-w-screen-2xl container mx-auto md:px-15 px-4  ${sticky ? "sticky top-0 z-50 shadow-md bg-base-200 duration-300 transition-all ease-in-out" : ""}`}>
+        <>        <div className={`max-w-screen-2xl container mx-auto md:px-15 px-4 bg-base-100 border ${sticky ? "sticky top-0 z-50 shadow-md bg-base-100 duration-300 transition-all ease-in-out" : ""}`}>
 
             <div className="navbar ">
                 <div className="navbar-start">
@@ -88,22 +88,7 @@ function navbar() {
                             {navItems}
                         </ul>
                     </div>
-                    {/* Search box| hidden for mob */}
-                    <div className='hidden md:block'>
-                        <label className=" px-3 py-2 border rounded-md flex items-center gap-2">
-                            <input type="text" className="grow outline-none" placeholder="Search" />
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                                fill="currentColor"
-                                className="h-4 w-4 opacity-70">
-                                <path
-                                    fillRule="evenodd"
-                                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                                    clipRule="evenodd" />
-                            </svg>
-                        </label>
-                    </div>
+                    
                     {/* change theme toggle */}
                     <div>
                         <label className="grid cursor-pointer place-items-center">

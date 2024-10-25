@@ -47,7 +47,7 @@ function YourBook() {
 
     return (
       <>
-        <div className='max-w-screen-2xl container mx-auto md:px-24 px-4  '>
+        <div className='max-w-screen-2xl container mx-auto md:px-24 px-4'>
               <div>
                   <h2 className='text-2xl md:text-3xl font-bold'>Explore</h2>
               </div>

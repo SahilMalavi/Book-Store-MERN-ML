@@ -1,91 +1,122 @@
 [
     {
         "id": 1,
-        "title": "Book Title 1",
-        "author": "Author 1",
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
         "category": "Drama",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "description": "A novel set in the Great Depression, focusing on themes of racial injustice and the loss of innocence.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }, 
+    },
     {
         "id": 2,
-        "title": "Book Title 2",
-        "author": "Author 2",
-        "category":"Tragedy",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "1984",
+        "author": "George Orwell",
+        "category": "Dystopian",
+        "description": "A chilling portrayal of a totalitarian society under constant surveillance.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }
-    , {
-        "id": 3,
-        "title": "Book Title 3",
-        "author": "Author 3",
-        "category": "Thriller",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }, {
-        "id": 4,
-        "title": "Book Title 4",
-        "author": "Author 4",
-        "category": "Comedy",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    },{
-        "id": 5,
-        "title": "Book Title 5",
-        "author": "Author 5",
-        "category": "Sci-fi",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    },{
-        "id": 6,
-        "title": "Book Title 6",
-        "author": "Author 6",
-        "category": "Motivational",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }, {
-        "id": 1,
-        "title": "Book Title 1",
-        "author": "Author 1",
-        "category": "Drama",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }, 
+    },
     {
-        "id": 2,
-        "title": "Book Title 2",
-        "author": "Author 2",
-        "category":"Tragedy",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }
-    , {
         "id": 3,
-        "title": "Book Title 3",
-        "author": "Author 3",
-        "category": "Thriller",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "category": "Tragedy",
+        "description": "A story about the American Dream and the disillusionment that can come with it.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    }, {
+    },
+    {
         "id": 4,
-        "title": "Book Title 4",
-        "author": "Author 4",
-        "category": "Comedy",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "category": "Romance",
+        "description": "A romantic novel of manners that satirizes issues of marriage, money, and social class in early 19th-century England.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    },{
+    },
+    {
         "id": 5,
-        "title": "Book Title 5",
-        "author": "Author 5",
-        "category": "Sci-fi",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "category": "Fantasy",
+        "description": "A fantasy adventure about a hobbit's quest to win a share of treasure guarded by a dragon.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
-    },{
+    },
+    {
         "id": 6,
-        "title": "Book Title 6",
-        "author": "Author 6",
-        "category": "Motivational",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "category": "Literary Fiction",
+        "description": "A story about a young man named Holden Caulfield, exploring themes of teenage angst and alienation.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 7,
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "category": "Fantasy",
+        "description": "An epic fantasy tale of good versus evil in the world of Middle-earth.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 8,
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "author": "J.K. Rowling",
+        "category": "Fantasy",
+        "description": "The first book in the Harry Potter series, introducing the young wizard and his adventures at Hogwarts.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 9,
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "category": "Adventure",
+        "description": "A narrative of Captain Ahab's obsessive quest to seek revenge on the white whale Moby Dick.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 10,
+        "title": "The Catch-22",
+        "author": "Joseph Heller",
+        "category": "Satire",
+        "description": "A satirical novel about the absurdities of war, centered on a group of soldiers during World War II.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 11,
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "category": "Dystopian",
+        "description": "A dystopian novel set in a futuristic world where society is controlled by technology and drugs.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 12,
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "category": "Post-Apocalyptic",
+        "description": "A bleak and harrowing story of a father and son's journey through a devastated world.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 13,
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "category": "Philosophical Fiction",
+        "description": "A novel about a young shepherd's journey to find a treasure, filled with lessons about life and dreams.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 14,
+        "title": "The Da Vinci Code",
+        "author": "Dan Brown",
+        "category": "Thriller",
+        "description": "A mystery thriller that follows symbologist Robert Langdon's investigation of a murder in the Louvre.",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
+    },
+    {
+        "id": 15,
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "category": "Historical Fiction",
+        "description": "An epic novel about the French invasion of Russia and the impact of the Napoleonic era on Russian society.",
         "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149350215.jpg?t=st=1724003175~exp=1724006775~hmac=cefdd1ca588de92a93eee9360e58236ab65f58fb76196726112d7c1a18368737&w=740"
     }
 ]
