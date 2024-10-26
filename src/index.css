@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'ubuntu',sans-serif;
+}
+/* Add this to your CSS file */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-in.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Add this to your CSS file */
+img {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* img:hover {
+  transform: scale(1.1);
+} */
+
+button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e293b; /* Example: dark slate */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
