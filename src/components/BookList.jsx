@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Cards from '../components/Cards';
 import list from '../../public/bookList.json';
-
+import {Link} from 'react-router-dom';
 function BookList() {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredBooks, setFilteredBooks] = useState(list);
@@ -52,7 +52,7 @@ function BookList() {
                 {filteredBooks.length > 0 ? (
                     <div className="mt-16 md:ml-8 md:mr-8 mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
                         {filteredBooks.map((item) => (
-                            <a href='/bookdescription'><Cards key={item.id} item={item} /></a>
+                            <Link to='/bookdescription'><Cards key={item.id} item={item} /></Link>
                         ))}
                     </div>
                 ) : (
