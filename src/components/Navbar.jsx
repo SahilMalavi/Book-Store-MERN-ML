@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function navbar() {
     const [theme, setTheme] = useState('light');
@@ -44,9 +45,9 @@ function navbar() {
     }, [])
 
     const navItems = (<>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/books'>Books</a></li>
-        <li><a href='/contact'>Contact</a></li>
+       <li><Link to='/'>Home</Link></li>
+        <li><Link to='/books'>Books</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
 
     </>)
     // const loginBtn = (<>
