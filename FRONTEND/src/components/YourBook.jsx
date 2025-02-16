@@ -1,12 +1,30 @@
-import React from 'react'
-import list from '../../public/bookList.json'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Cards from './Cards';
 
 
-function YourBook() {
+const YourBook = () => {
+
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        const getBooks = async () => {
+            try {
+                const res = await axios.get("http://localhost:4001/book");
+                console.log(res.data);
+                setBooks(res.data);
+                //setFilteredBooks(res.data); // Set filteredBooks initially to all books
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getBooks();
+    }, []);
+
+
     var settings = {
         dots: true,
         infinite: false,
@@ -46,27 +64,27 @@ function YourBook() {
     // var data = list.filter((i) => i.id > 0)
 
     return (
-      <>
-        <div className='max-w-screen-2xl container mx-auto md:px-24 px-4'>
-              <div>
-                  <h2 className='text-2xl md:text-3xl font-bold'>Explore</h2>
-              </div>
-          
-                <div className="slider-container m-5">
-                <Slider {...settings} >
-                        {/* Map over the filtered data and create a card for each book */}
-                        { 
-                          list.map((item) => (
-                              <Cards item={item} key={item.id} />
-                          ))
-                      }
+        <>
+            <div className='max-w-screen-2xl container mx-auto md:px-24 px-4'>
+                <div>
+                    <h2 className='text-2xl md:text-3xl font-bold'>Explore</h2>
+                </div>
 
-                </Slider>
-              </div>
-          </div>
-      </>
-      
-  )
+                <div className="slider-container m-5">
+                    <Slider {...settings} >
+                        {/* Map over the filtered data and create a card for each book */}
+                        {
+                            books.map((item) => (
+                                <Cards item={item} key={item.id} />
+                            ))
+                        }
+
+                    </Slider>
+                </div>
+            </div>
+        </>
+
+    )
 }
 
 export default YourBook

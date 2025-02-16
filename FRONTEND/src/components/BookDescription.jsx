@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import banner from '../../public/banner.png'
-function BookDescription() {
+
+function BookDescription({ item }) {
   return (
       <>
           <Navbar />
@@ -17,7 +18,7 @@ function BookDescription() {
                       <div className='m-5 space-y-1 md:space-y-4'>
                           <h3 className='text-1xl md:text-2xl font-bold'>
                               Title:</h3>
-                          <h3 className='text-1xl md:text-2xl font-bold'>Author: Jane Doe</h3>
+                          <h3 className='text-1xl md:text-2xl font-bold'>Author: {item.title}</h3>
                           <h3 className='text-1xl md:text-2xl font-bold'>Category: Fiction</h3>
                           <h3 className='text-1xl md:text-2xl font-bold'>Description: </h3>
                       </div>
