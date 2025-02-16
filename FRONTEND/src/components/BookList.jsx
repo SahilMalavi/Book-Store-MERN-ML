@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Cards from '../components/Cards';
 import axios from 'axios';
 
+
 function BookList() {
     const [searchQuery, setSearchQuery] = useState('');
     const [books, setBooks] = useState([]);
@@ -11,7 +12,7 @@ function BookList() {
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const res = await axios.get("http://localhost:4001/book");
+                const res = await axios.get(`${process.env.API_BASE_URL}/book`);
                 console.log(res.data);
                 setBooks(res.data);
                 setFilteredBooks(res.data); // Set filteredBooks initially to all books
