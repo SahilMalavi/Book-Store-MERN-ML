@@ -1,23 +1,40 @@
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Node modules (heavy and unnecessary)
+node_modules/
+
+# Environment variables (contain secrets)
+.env
+.env.local
+.env.development
+.env.production
+
+# Build files (generated during deployment)
+dist/
+dist-ssr/
+build/
+
+# Dependency lock files (if using npm/yarn together)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Editor/IDE specific files
+.vscode/
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+!.vscode/extensions.json  # Keep VSCode extensions config
+
+# OS-specific files
+Thumbs.db
