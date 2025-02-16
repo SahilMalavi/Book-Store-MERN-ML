@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 dotenv.config();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3096;
 
 //mongodb connect
 connectDB();

@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Cards from '../components/Cards';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function BookList() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -12,7 +13,7 @@ function BookList() {
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const res = await axios.get(`${process.env.API_BASE_URL}/book`);
+                const res = await axios.get(`${API_BASE_URL}/book`);
                 console.log(res.data);
                 setBooks(res.data);
                 setFilteredBooks(res.data); // Set filteredBooks initially to all books

@@ -5,15 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Cards from './Cards';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const YourBook = () => {
-
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const res = await axios.get(`${process.env.API_BASE_URL}/book`);
+                const res = await axios.get(`${API_BASE_URL}/book`);
                 console.log(res.data);
                 setBooks(res.data);
             } catch (error) {
