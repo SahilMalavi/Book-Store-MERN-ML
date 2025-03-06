@@ -14,7 +14,7 @@ function BookList() {
         const getBooks = async () => {
             try {
                 const res = await axios.get(`${API_BASE_URL}/book`);
-                console.log(res.data);
+                // console.log(res.data);
                 setBooks(res.data);
                 setFilteredBooks(res.data); // Set filteredBooks initially to all books
             } catch (error) {
