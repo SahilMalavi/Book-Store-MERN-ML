@@ -53,7 +53,8 @@ function navbar() {
     //     <a className="  bg-black text-white text-1xl px-4 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer text-center">Login</a>
     // </>)
     return (
-        <>        <div className={`max-w-screen-2xl container mx-auto md:px-15 px-4 bg-base-100 border ${sticky ? "sticky top-0 z-50 shadow-md bg-base-100 duration-300 transition-all ease-in-out" : ""}`}>
+        <>
+            <div className={`max-w-screen-2xl container mx-auto md:px-15 px-4 bg-base-500  ${sticky ? "sticky top-0 z-50 shadow-lg bg-base-300 duration-300 transition-all ease-in-out" : ""}`}>
 
             <div className="navbar ">
                 <div className="navbar-start">

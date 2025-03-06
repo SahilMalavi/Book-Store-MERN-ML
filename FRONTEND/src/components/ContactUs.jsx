@@ -34,7 +34,7 @@ function ContactUs() {
                 justifyContent: "center",
                 alignItems: "center",
                 height: "100vh",
-                margin: '10px auto'
+                margin: '20px auto'
             }}>
                 <div style={{
                     maxWidth: "400px",

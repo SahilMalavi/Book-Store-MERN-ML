@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Cards from './Cards';
+import { Link } from "react-router-dom";
+
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -74,7 +76,9 @@ const YourBook = () => {
                         {/* Map over the filtered data and create a card for each book */}
                         {
                             books.map((item) => (
-                                <Cards item={item} key={item.id} />
+                                <Link key={item._id || item.id} to={`/books/${item._id}`}>
+                                    <Cards item={item} key={item._id || item.id} />
+                                </Link>
                             ))
                         }
 
