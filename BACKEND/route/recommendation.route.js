@@ -4,10 +4,11 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { book_title } = req.body;
+    const { title } = req.body;  
+    console.log(title);
 
     const response = await axios.post("http://127.0.0.1:5000/recommend", {
-      book_title,
+      title
     });
 
     res.json(response.data);

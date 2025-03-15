@@ -2,13 +2,13 @@ import React from 'react';
 
 function Cards({ item }) {
     // Trim description to a maximum of 100 characters
-    const trimmedDescription = item.description.length > 100
-        ? item.description.substring(0, 100) + '...'
+    const trimmedDescription = item.description.length > 80
+        ? item.description.substring(0, 80) + '...'
         : item.description;
 
     return (
 
-        <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl container mx-auto px-4">
+        <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl container px-4">
             <div className="card bg-base-100 shadow-xl mt-4 mb-4 dark:border-white  card-compact m-2 hover:scale-105 duration-200">
                 {/* <figure>
                     <img

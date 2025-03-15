@@ -1,0 +1,44 @@
+# Ignore virtual environment
+venv/
+env/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment variables and sensitive files
+.env
+*.env
+config.json
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore cache and temporary files
+*.bak
+*.swp
+*.swo
+.DS_Store
+
+# Ignore Jupyter Notebook checkpoints (if used)
+.ipynb_checkpoints/
+
+# Ignore system-generated files
+Thumbs.db
+
+# Ignore additional Python files except the main app file
+*.py
+!app.py  # Allow only app.py to be pushed
+
+# Ignore VSCode settings (if using VSCode)
+.vscode/
+
+# Ignore node_modules if using JavaScript in frontend
+node_modules/

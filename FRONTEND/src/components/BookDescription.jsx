@@ -3,13 +3,23 @@ import Navbar from '../components/Navbar'
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Cards from "../components/Cards"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { useLocation } from 'react-router-dom';
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
+const SENTIMENT_API = "http://127.0.0.1:5000/analyze"; 
 function BookDescription() {
-
+    const location = useLocation();
     const { id } = useParams();
     const [book, setBook] = useState(null);
     const [recommendedBooks, setRecommendedBooks] = useState([]);
+    const [review, setReview] = useState("");
+    const [sentiment, setSentiment] = useState(null);
+
     useEffect(() => {
         axios.get(`${API_BASE_URL}/book/${id}`)
             .then(response => {
@@ -18,27 +28,77 @@ function BookDescription() {
             .catch(error => {
                 console.error("Error fetching book details:", error);
             });
-    }, [id]); 
+    }, [id]);
 
     useEffect(() => {
-        if (book && book.title) { 
+        if (!book || !book.title) return; // Ensure book is not null before API call
 
-            axios.post(`${API_BASE_URL}/recommend`, { book_title: book.title })
-                .then(res => {
-                    setRecommendedBooks(res.data.recommended_books); 
-                    console.log("Recommended Books:", res.data.recommended_books);
-                })
-                .catch(error => {
-                    setRecommendedBooks([]); 
-                    console.error("Error fetching recommended books:", error);
-                });
+        axios.post(`${API_BASE_URL}/recommend`, { title: book.title })
+            .then(res => {
+                setRecommendedBooks(res.data.recommended_books);
+            })
+            .catch(err => {
+                setRecommendedBooks([]);
+                console.error(err)
+            });
+    }, [book]);
+
+    const analyzeSentiment = async () => {
+        try {
+            const response = await axios.post(SENTIMENT_API, { review });
+            setSentiment(response.data.sentiment);
+        } catch (error) {
+            console.error("Error analyzing sentiment:", error);
         }
-    }, [book]); 
+    };
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [id]);
+
 
     if (!book) {
         return <div className="text-center text-gray-500">Loading...</div>;
     }
 
+    var settings = {
+        dots: true,
+        infinite: false,
+        speed: 600,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        initialSlide: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 0
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 0,
+                    dots: false,
+                    infinite: true,
+
+
+                }
+            }
+        ]
+    };
     return (
         <>
             <Navbar />
@@ -77,24 +137,49 @@ function BookDescription() {
 
                 {/* Recommendation of books */}
                 <div>
-                    <h1 className='text-xl mt-5 font-bold '>Book Recommendations </h1><br />
-                    <ul className='grid grid-cols-5'>
-                        {recommendedBooks.map((recommendedBook, index) => (
-                            // <Link key={index} to={`/books/${item._id}`}> for this first save data in dataset into mango
-                            //     <Cards key={index} item={item} />
-                            // </Link>
-                            <li key={index} className=' mt-5'>
-                                <h3>{index + 1}: {recommendedBook.title}</h3>
-                                <p>-{recommendedBook.author}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <h1 className='text-xl mt-10 font-bold '>You might also like </h1><br />
+
+                    <div className="slider-container m-2">
+                        <Slider {...settings} >
+                            {/* Map over the filtered data and create a card for each book */}
+                            {
+                                recommendedBooks.map((item) => (
+                                    <Link key={item._id || item.id} to={`/books/${item._id}`}>
+                                        <Cards item={item} key={item._id || item.id} />
+                                    </Link>
+                                ))
+                            }
+                        </Slider>
+                    </div>
                 </div>
 
                 {/* Sentiment analysis of book reviews */}
-                <div>
+                {/* <div>
                     <h1 className='text-xl mt-5 font-bold '>Book Reviews (Sentiment Analysis)</h1><br />
+                            
+                </div> */}
 
+                <div className="mt-5">
+                    <h1 className='text-xl font-bold '>Book Reviews (Sentiment Analysis)</h1>
+                    <textarea
+                        className="border p-2 w-full mt-2"
+                        placeholder="Write your review..."
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                    ></textarea>
+                    <button
+                        onClick={analyzeSentiment}
+                        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
+                    >
+                        Analyze Sentiment
+                    </button>
+
+                    {/* Show Sentiment Result */}
+                    {sentiment && (
+                        <p className="mt-3 text-lg font-bold">
+                            Sentiment: <span className="text-blue-600">{sentiment}</span>
+                        </p>
+                    )}
                 </div>
             </div>
         </>

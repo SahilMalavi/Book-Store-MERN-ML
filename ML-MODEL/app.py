@@ -1,51 +1,111 @@
 from flask import Flask, request, jsonify
+from pymongo import MongoClient
+from bson import ObjectId
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-import pickle
-import numpy as np
+import os
+from dotenv import load_dotenv
+from flask_cors import CORS
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-# Load the models and data
-popular_df = pickle.load(open('popular.pkl', 'rb'))
-pt = pickle.load(open('pt.pkl', 'rb'))
-books = pickle.load(open('books.pkl', 'rb'))
-similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
+load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for frontend communication
+
+analyzer = SentimentIntensityAnalyzer()
+# Connect to MongoDB
+MONGO_URI = os.getenv("MONGO_URI")
+client = MongoClient(MONGO_URI)
+db = client["bookStore"]
+collection = db["newbooks"]
+
+
+
+def fetch_books_from_db():
+    """Fetch books from MongoDB and return as a DataFrame."""
+    books_data = list(collection.find({}, {"_id": 1, "isbn": 1, "title": 1, "author": 1, 
+                                          "year_of_publication": 1, "publisher": 1, 
+                                          "image": 1, "description": 1, "category": 1}))
+    
+    for book in books_data:
+        book['_id'] = str(book['_id'])
+    
+    return pd.DataFrame(books_data)
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Welcome to the Book Recommendation API" ,"api":popular_df.to_dict(orient="list")})
+    return jsonify({"message": "Welcome to the Book Recommendation API using MongoDB"})
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
     try:
         data = request.json
-        user_input = data.get('book_title')
-
+        user_input = data.get('title')
+        
         if not user_input:
             return jsonify({"error": "Book title is required"}), 400
-
-        if user_input not in pt.index:
+        
+        # Fetch books from MongoDB dynamically
+        books = fetch_books_from_db()
+        
+        if user_input not in books['title'].values:
             return jsonify({"error": "Book not found"}), 404
 
-        index = np.where(pt.index == user_input)[0][0]
-        similar_items = sorted(
-            list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True
-        )[1:11]
+        # Fill missing values with empty strings to avoid errors
+        books.fillna({'description': '', 'category': '', 'author': ''}, inplace=True)
+        
+        # Create a combined feature column for text similarity
+        books['combined_features'] = books['description'] + " " + books['category'] + " " + books['author']
 
-        recommendations = []
-        for i in similar_items:
-            temp_df = books[books['Book-Title'] == pt.index[i[0]]].drop_duplicates('Book-Title')
-
-            recommendations.append({
-                "title": temp_df['Book-Title'].values[0],
-                "author": temp_df['Book-Author'].values[0],
-                "image": temp_df['Image-URL-M'].values[0]
-            })
-
-        return jsonify({"recommended_books": recommendations})
-
+        # Compute TF-IDF matrix
+        tfidf_vectorizer = TfidfVectorizer(stop_words='english')
+        tfidf_matrix = tfidf_vectorizer.fit_transform(books['description'] + " " + books['category'] + " " + books['author'])
+        
+        # Compute Cosine Similarity
+        cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
+        
+        # Find the index of the book that matches the title
+        idx = books[books['title'] == user_input].index[0]
+        
+        # Get similarity scores and sort them
+        sim_scores = list(enumerate(cosine_sim[idx]))
+        sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)[1:11]  # Top 10 similar books
+        
+        # Get recommended book indices
+        book_indices = [i[0] for i in sim_scores]
+        
+        # Extract book details including _id
+        recommendations = books.iloc[book_indices][['_id', 'isbn', 'title', 'author',
+                                                     'year_of_publication', 'publisher',
+                                                     'image', 'category', 'description']]
+        
+        return jsonify({"recommended_books": recommendations.to_dict(orient="records")})
+    
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": str(e)})
+
+
+
+@app.route('/analyze', methods=['POST'])
+def analyze_sentiment():
+    data = request.json
+    review = data.get('review', '')
+
+    if not review:
+        return jsonify({"error": "Review text is required"}), 400
+
+    sentiment_score = analyzer.polarity_scores(review)
+
+    if sentiment_score['compound'] >= 0.05:
+        sentiment = "positive"
+    elif sentiment_score['compound'] <= -0.05:
+        sentiment = "negative"
+    else:
+        sentiment = "neutral"
+
+    return jsonify({"sentiment": sentiment, "score": sentiment_score['compound']})
 
 if __name__ == '__main__':
     app.run(debug=True)

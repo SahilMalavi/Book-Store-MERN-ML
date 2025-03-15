@@ -13,33 +13,31 @@ function BookList() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const getBooks = async () => {
+        const fetchBooks = async () => {
             try {
                 const res = await axios.get(`${API_BASE_URL}/book`);
                 // console.log(res.data);
                 setBooks(res.data);
-                setFilteredBooks(res.data); // Set filteredBooks initially to all books
+                setFilteredBooks(res.data); 
             } catch (error) {
-                console.error(error);
+                console.error('Error fetching books:', error);
             } finally {
-                setIsLoading(false);
+                setIsLoading(false); 
             }
         };
-        getBooks();
-    }, [books]);
+
+        fetchBooks();
+    }, []); 
 
     const handleSearchChange = (e) => {
         const query = e.target.value.toLowerCase();
         setSearchQuery(query);
 
-        if (query === '') {
-            setFilteredBooks(books); // Reset to all books when search is empty
-        } else {
-            const filtered = books.filter((book) =>
-                book.title.toLowerCase().includes(query)
-            );
-            setFilteredBooks(filtered);
-        }
+        // Only filter based on books, NOT books dependency in useEffect
+        const filtered = books.filter((book) =>
+            book.title.toLowerCase().includes(query)
+        );
+        setFilteredBooks(filtered);
     };
 
     return (
