@@ -11,7 +11,7 @@ import Slider from "react-slick";
 import { useLocation } from 'react-router-dom';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const SENTIMENT_API = "http://127.0.0.1:5000/analyze"; 
+const SENTIMENT_API = import.meta.env.VITE_API_ML_URL;;
 function BookDescription() {
     const location = useLocation();
     const { id } = useParams();
@@ -45,7 +45,7 @@ function BookDescription() {
 
     const analyzeSentiment = async () => {
         try {
-            const response = await axios.post(SENTIMENT_API, { review });
+            const response = await axios.post(`${SENTIMENT_API}/analyze`, { review });
             setSentiment(response.data.sentiment);
         } catch (error) {
             console.error("Error analyzing sentiment:", error);
