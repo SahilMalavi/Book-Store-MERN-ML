@@ -1,8 +1,6 @@
-Flask
-Flask-Cors
+flask
+flask-cors
 pymongo
-python-dotenv
-pandas
-scikit-learn
 vaderSentiment
-gunicorn
+numpy
+scipy
