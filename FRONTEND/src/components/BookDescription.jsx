@@ -162,7 +162,7 @@ function BookDescription() {
                 <div className="mt-5">
                     <h1 className='text-xl font-bold '>Book Reviews (Sentiment Analysis)</h1>
                     <textarea
-                        className="border p-2 w-full mt-2"
+                        className="border p-2 w-full mt-5"
                         placeholder="Write your review..."
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
