@@ -108,4 +108,4 @@ def analyze_sentiment():
     return jsonify({"sentiment": sentiment, "score": sentiment_score['compound']})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
