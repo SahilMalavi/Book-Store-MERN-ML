@@ -6,7 +6,7 @@ router.post("/", async (req, res) => {
   try {
     const { title } = req.body;
     const response = await axios.post(
-      "https://flask-app-bookstore.up.railway.app/recommend",
+      "https://book-store-mern-ml.onrender.com/recommend",
       {
         title,
       }
